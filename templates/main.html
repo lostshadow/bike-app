@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Web app name</title>
+    <style>
+.text-small {
+    font-size: 0.9rem !important;
+}
+h3{
+    color:white
+
+}
+
+body {
+    min-height: 110vh;
+    background-color: #4ca1af;
+    background-image: linear-gradient(135deg, #4ca1af 0%, #474B4F 100%);
+
+}
+fieldset
+{
+  background-color:#B0C4DE;
+  max-width:500px;
+  padding:16px;
+}
+#reponse{
+    color:white;
+}
+
+    </style>
+
+</head>
+<body>
+<!--Header place-->
+
+<!--End of header-->
+<!--the place for navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('main')}}">Home <span class="sr-only"></span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{url_for('table_data')}}">Data table</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('bike_page')}}">Data analyse</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--End of navigation-->
+
+ <div class="pt-5 text-white">
+        <header class="py-5 mt-5">
+            <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <!--presentation-->
+      <h1 class="display-4">Présentation</h1>
+    <p class="lead">Pour présenter au mieux l'intérêt que je cultive pour la data science, et le pourquoi de ce choix professionnel,
+        j'ai choisi de mettre en application un cas d'usage et de le déployer afin de démontrer l'utilité et les moyens que
+        propose cette technique très large qui permet la prise de décision.
+    </p>
+    <h1 class="display-4">Data Science Use case</h1>
+    <p class="lead">La data science permet l'analyse de données et d'aboutir à des prédictions ceci grâce à des modèles entrainés
+    La source des données utilisées provient de la "Cambridge Academy", il s'agit d'un jeu de données correspondant aux
+    éléments pouvant influencer le nombre de vélos loués. Pour entrainer le modèle on utilise XGBoost qui est une bibliothèque optimisée d'amplification de gradient distribué
+        conçue pour être hautement efficace, flexible et portable . Il implémente des algorithmes d'apprentissage automatique dans le cadre du Gradient Boosting .
+    </p>
+  </div>
+</div>
+        </header>
+ </div>
+
+<div class="container">
+  <!-- Content here -->
+    <h3 class="lead">Using and import model to make prediction</h3>
+<!--place div for form-->
+    <div class="row justify-content-start">
+    <div class="col-4">
+<div style="margin:20px; padding:19px; width:400px; height:400px; border: solid white 2px; align=center">
+    <form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Temperature:
+        <input class="mb-3"  name="temperature" type="number" required>
+        <br>
+        <br> Humidity:
+        <input class="mb-3"  name="humidity" type="number" required>
+        <br>
+        <br> Windspeed:
+        <input class="mb-3" name="windspeed" type="number" required>
+        <br>
+        <br>
+        <!--<input class="mb-3"  type="submit">-->
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+    </fieldset>
+    </form>
+</div>
+    </div>
+        </div>
+ <div class="row justify-content-start">
+    <div class="col-4">
+<br>
+        <div id="reponse">
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Predicted number of bikes in use:
+           <p style="font-size:50px; color=white">{{ result }}</p>
+    {% endif %}
+</div>
+
+    </div>
+
+    </div>
+ </div>
+</div>
+
+ <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container" style="width:100%">
+        <p class="m-0 text-center text-white">Copyright &copy;  Rahal rachid Website 2021</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+</body>
+</html>
