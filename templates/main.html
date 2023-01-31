@@ -30,6 +30,9 @@ fieldset
   max-width:500px;
   padding:16px;
 }
+h3{
+  color:white;
+}
 #reponse{
     color:white;
 }
@@ -91,7 +94,7 @@ fieldset
 <!--place div for form-->
     <div class="row justify-content-start">
     <div class="col-4">
-<div style="margin:20px; padding:19px; width:400px; height:400px; border: solid white 2px; align=center">
+<div style="margin:20px; padding:19px; width:400px; height:400px; border: solid white 2px;">
     <form action="{{ url_for('main') }}" method="POST">
     <fieldset>
         <legend>Input values:</legend>
@@ -117,19 +120,32 @@ fieldset
  <div class="row justify-content-start">
     <div class="col-4">
 <br>
-        <div id="reponse">
-<div class="result" align="center">
-    {% if result %}
-        {% for variable, value in original_input.items() %}
-            <b>{{ variable }}</b> : {{ value }}
-        {% endfor %}
-        <br>
-        <br> Predicted number of bikes in use:
-           <p style="font-size:50px; color=white">{{ result }}</p>
-    {% endif %}
+<div>
+  <h3>Temperature : {{temperature}} </h3>
+<div>
+  <h3>Humidity: {{humidity}}</h3> 
+<div>
+ <h3>Windspeed: {{windspeed}}</h3>
 </div>
 
-    </div>
+<div>
+  <h3>Nombre de vélos: {{result}}</h3>
+ </div>
+</div>
+
+</div>
+<!--<div id="reponse">
+<div class="result">
+    {% if result %}
+    {% for variable, value in original_input.items() %}
+    <b>{{ variable }}</b> : {{ value }}
+{% endfor %}
+<br>
+<br> Predicted number of bikes in use:
+  <h3>{{ result }}</h3>
+  {% endif %}-->
+
+ 
 
     </div>
  </div>
