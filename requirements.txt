@@ -1,5 +1,5 @@
 flask==1.1.2
-pandas==1.4.4
+pandas
 gunicorn
 xgboost==1.9.1
 sklearn
