@@ -1,4 +1,4 @@
-flask==1.1.2
+flask
 pandas
 gunicorn
 xgboost==1.6.2
