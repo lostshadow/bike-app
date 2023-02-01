@@ -1,7 +1,4 @@
-flask==2.1.0
-pandas
-gunicorn
-xgboost==1.6.2
-sklearn
-numpy==1.21.5
-scikit-learn==1.0.2
+flask~=2.2.2
+pandas~=1.5.3
+scikit-learn~=1.2.1
+jinja2~=3.1.2
