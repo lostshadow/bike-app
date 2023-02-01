@@ -1,5 +1,5 @@
-flask~=2.2.2
+flask
 pandas
-scikit-learn~=1.2.1
-jinja2~=3.1.2
+scikit-learn
+jinja2
 pickle
