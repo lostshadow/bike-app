@@ -3,20 +3,26 @@
 {% block content %}
 
 
-<div class="container-fluid" style="text-align: center, width:1000px" >
-    </br>
-<h1 style="color:white">Data use for the model</h1>
-    <div style="align:center">
-        <table class="table table-condensed">
-    <!--Displaying the converted table-->
-         {% for table in tables %}
-        <h2>{{titles[loop.index]}}</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 col-md-4"></div>
+    <div class="col-12 col-md-8">
+
+        <h1 style="color:white">Data use for the model</h1>
+   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <div style="position:relative; magin-left:40%">
+
+        <div class=page>
+        {% for table in tables %}
+    <h2>{{titles[loop.index]}}</h2>
         {{ table|safe }}
         {% endfor %}
-    </table>
+            </div>
+    </div>
+  </div>
 
     </div>
-
+  </div>
   </div>
 
 {% endblock %}

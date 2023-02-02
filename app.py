@@ -22,8 +22,8 @@ def bike_page():
 def table_data():
     data = pd.read_csv('data/bike_data.csv')
     data.to_csv('sample_data.csv', index=None)
-    data_view = data[['date', 'temperature', 'humidity', 'windspeed']].head(n=40)
-    return flask.render_template('table_data.html', tables=[data_view.to_html()], titles=[''])
+    data_view = data[['date', 'temperature', 'humidity', 'windspeed', 'count']].head(n=40)
+    return flask.render_template('table_data.html', tables=[data_view.to_html(classes='data_bike')], titles=[''])
 
 
 @app.route('/', methods=['GET', 'POST'])
