@@ -5,3 +5,4 @@ xgboost
 sklearn
 numpy
 scikit-learn
+pickle
