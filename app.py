@@ -2,11 +2,10 @@ import flask
 import pickle
 from flask import render_template, request
 import pandas as pd
+import joblib
 
 
-# Use pickle to import model
-with open(f'model/bike_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+model = joblib.load('model/model_bike.sav')
 
 app = flask.Flask(__name__, template_folder='templates')
 
