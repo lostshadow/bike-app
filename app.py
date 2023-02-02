@@ -1,7 +1,7 @@
 import flask
-import pickle
 from flask import render_template, request
 import pandas as pd
+from sklearn.ensemble import GradientBoostingRegressor
 import joblib
 
 
@@ -38,7 +38,7 @@ def main():
                                        columns=['temperature', 'humidity', 'windspeed'],
                                        dtype=float)
         result = model.predict(input_variables)[0]
-        input_view=input_variables.reset_index()
+        input_view = input_variables.reset_index()
         return flask.render_template('main.html', original_input=input_view, result=round(result, 0))
 
 
